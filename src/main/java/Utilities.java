@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class Utilities {
 
-    private static Gson GSON = new Gson();
+    private final static Gson GSON = new Gson();
 
     public String loadApiContFromURL(String apiURL) {
         final StringBuilder stringBuilder = new StringBuilder();
