@@ -1,5 +1,8 @@
 import model.OpenWeatherApiResponse;
 
+import java.util.List;
+import java.util.Optional;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -26,5 +29,19 @@ public class Main {
                             + ", temperatura: " + openWeatherApiResponse.getMain().getFeels_like()
                             + ".");
 
+        // __________________________________________________________________________________________________
+        System.out.println();
+        System.out.println();
+        System.out.println("By Http(Optional):");   // wiemy, że jest jeden element
+        Optional<OpenWeatherApiResponse> optional = utilities.getApiRespone();
+        if (optional.isPresent()) {
+            OpenWeatherApiResponse response = optional.get();
+            System.out.println(response);
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println("By Http(List)");    // oczekujemy listy (jednoelementowej) - błąd założenia, odpowiedź to nie lista, tylko pojedynczy elemennt
+        System.out.println(utilities.getAll());
     }
 }
